@@ -1,0 +1,30 @@
+Running on node: habaki
+In directory: /home/members/morita/Sequence_Analysis_Algorithms
+Starting on: Sat Aug  2 22:00:37 UTC 2025
+SLURM_JOB_ID: 4523
+Text length: 1,000,000
+Pattern length: 5
+
+Running fft-convolution matching with resource monitoring...
+
+Finished in 0.9004 seconds.
+Resource log saved to log/FFT_6_5_resource_log.csv
+
+Finished in 0.8451 seconds.
+Found 1,134 matches.
+Number of correct matches: 1134
+Number of found matches: 1134
+Number of matches correctly found: 1134
+Text length: 1,000,000
+Pattern length: 5
+
+Running KMP algorithm with resource monitoring...
+
+Finished in 0.3003 seconds.
+Resource log saved to log/KMP_6_5_resource_log.csv
+
+Finished in 0.2547 seconds.
+Found 1,134 matches.
+Number of correct matches: 1134
+Number of found matches: 1134
+Number of matches correctly found: 1134

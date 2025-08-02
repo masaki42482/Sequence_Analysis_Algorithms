@@ -1,4 +1,5 @@
 import random
+import sys
 
 def generate_random_dna(length):
     return ''.join(random.choices('ACGT', k=length))
@@ -26,9 +27,9 @@ def find_exact_matches(text, pattern):
             positions.append(i)
     return positions
 
-def main():
-    total_length = 10**9
-    pattern = "ACTGCA"
+def main(e, f):
+    total_length = 10**e
+    pattern = ''.join(random.choices('ACGT', k=f*5))
     insert_count = 100
 
     random_text = generate_random_dna(total_length)
@@ -45,4 +46,6 @@ def main():
             f.write(str(pos) + "\n")
 
 if __name__ == "__main__":
-    main()
+    e = int(sys.argv[1])
+    f = int(sys.argv[2])
+    main(e, f)

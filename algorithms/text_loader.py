@@ -24,6 +24,6 @@ def compare_matches(correct_positions, found_positions):
     print(f"Number of found matches: {len(found_positions)}")
     print(f"Number of matches correctly found: {len(matched)}")
     if correct_only:
-        print(f"Matches missed (correct but not found): {sorted(correct_only)}")
+        print(f"Matches missed (correct but not found): {len(sorted(correct_only))}")
     if found_only:
-        print(f"False positives (found but not correct): {sorted(found_only)}")
+        print(f"False positives (found but not correct): {len(sorted(found_only))}")
