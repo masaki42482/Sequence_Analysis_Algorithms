@@ -28,3 +28,29 @@ Found 1,134 matches.
 Number of correct matches: 1134
 Number of found matches: 1134
 Number of matches correctly found: 1134
+Text length: 10,000,000
+Pattern length: 5
+
+Running fft-convolution matching with resource monitoring...
+
+Finished in 8.0004 seconds.
+Resource log saved to log/FFT_7_5_resource_log.csv
+
+Finished in 7.9286 seconds.
+Found 9,834 matches.
+Number of correct matches: 9834
+Number of found matches: 9834
+Number of matches correctly found: 9834
+Text length: 10,000,000
+Pattern length: 5
+
+Running KMP algorithm with resource monitoring...
+
+Finished in 2.0003 seconds.
+Resource log saved to log/KMP_7_5_resource_log.csv
+
+Finished in 1.9629 seconds.
+Found 9,834 matches.
+Number of correct matches: 9834
+Number of found matches: 9834
+Number of matches correctly found: 9834
