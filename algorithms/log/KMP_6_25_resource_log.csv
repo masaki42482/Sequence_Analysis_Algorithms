@@ -1,0 +1,6 @@
+time_sec,cpu_percent,memory_mb
+0.03,4.90,16.16
+0.11,4.70,16.16
+0.21,5.10,16.16
+
+Total Execution Time,0.3003,seconds
