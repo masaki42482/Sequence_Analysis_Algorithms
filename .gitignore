@@ -8,5 +8,8 @@ wheels/
 
 dna_*
 
+*.err
+*.log
+
 # Virtual environments
 .venv

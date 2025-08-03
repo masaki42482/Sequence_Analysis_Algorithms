@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 directory = "./log/"
 
 def extract_execution_times():
-    # {(algo, pattern_len, text_len): time}
     data = {}
     pattern = re.compile(r"([A-Za-z_]+)_(\d+)_(\d+)_resource_log\.csv")
 
@@ -32,7 +31,6 @@ def extract_execution_times():
     return data
 
 def plot_pattern_length_comparison(data):
-    # 条件：text_len = 10^9
     target_text_len = 10**9
     algorithms = ["Boyer_Moore", "KMP", "FFT"]
 
@@ -46,7 +44,6 @@ def plot_pattern_length_comparison(data):
                 x_vals.append(pattern_len)
                 y_vals.append(time)
         if x_vals:
-            # ソートしてプロット
             sorted_pairs = sorted(zip(x_vals, y_vals))
             x_sorted, y_sorted = zip(*sorted_pairs)
             plt.plot(x_sorted, y_sorted, marker='o', label=algo)
@@ -62,7 +59,6 @@ def plot_pattern_length_comparison(data):
     print("Saved comparison_pattern_length.png")
 
 def plot_text_length_comparison(data):
-    # 条件：pattern_len = 125
     target_pattern_len = 125
     algorithms = ["Boyer_Moore", "KMP", "FFT"]
 
@@ -76,7 +72,6 @@ def plot_text_length_comparison(data):
                 x_vals.append(text_len)
                 y_vals.append(time)
         if x_vals:
-            # ソートしてプロット
             sorted_pairs = sorted(zip(x_vals, y_vals))
             x_sorted, y_sorted = zip(*sorted_pairs)
             x_labels = [f"$10^{len(str(x))-1}$" for x in x_sorted]  # eに戻すため
@@ -92,7 +87,6 @@ def plot_text_length_comparison(data):
     plt.close()
     print("Saved comparison_text_length.png")
 
-# 実行
 data = extract_execution_times()
 plot_pattern_length_comparison(data)
 plot_text_length_comparison(data)

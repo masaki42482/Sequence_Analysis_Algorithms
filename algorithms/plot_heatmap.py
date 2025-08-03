@@ -4,12 +4,10 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# CSVファイルがあるディレクトリ（スクリプトと同じ場所）
 directory = "./log/"
 
-# ヒートマップ作成関数
 def generate_heatmap(algorithm_name):
-    data = {}  # {(pattern_len, text_len): execution_time}
+    data = {}  
     pattern = re.compile(rf"{algorithm_name}_(\d+)_(\d+)_resource_log\.csv")
 
     for filename in os.listdir(directory):
@@ -33,19 +31,15 @@ def generate_heatmap(algorithm_name):
         print(f"No data found for {algorithm_name}")
         return
 
-    # 辞書をDataFrameに変換
     df = pd.DataFrame.from_dict(data, orient="index", columns=["time"])
     df.index = pd.MultiIndex.from_tuples(df.index, names=["pattern_len", "text_len"])
     heatmap_data = df.unstack(level="text_len").droplevel(axis=1, level=0)
 
-    # パターン長を昇順にソート（縦軸：下から上に大きくなるように）
     heatmap_data = heatmap_data.sort_index(ascending=True)
 
-    # 横軸のラベルを "10^e" の形で生成
     text_lengths = heatmap_data.columns.tolist()
     text_labels = [f"$10^{len(str(tl))-1}$" for tl in text_lengths]
 
-    # ヒートマップを描画
     plt.figure(figsize=(10, 8))
     ax = sns.heatmap(
         heatmap_data,
@@ -63,7 +57,6 @@ def generate_heatmap(algorithm_name):
     plt.close()
     print(f"Saved {algorithm_name}_heatmap.png")
 
-# 対象アルゴリズム
 algorithms = ["Boyer_Moore", "KMP", "FFT"]
 
 for algo in algorithms:
